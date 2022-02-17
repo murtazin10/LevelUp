@@ -21,24 +21,28 @@ int main()
     do
     {
         ++i;
-    } while ((n1 % i != 0) && (n2 % i != 0) && (n3 % i != 0));
+        if (i > n1 && i > n2 && i > n3)
+            break;
+    } while ((n1 % i != 0) || (n2 % i != 0) || (n3 % i != 0));
 
-    if (n1 % i != 0 && n2 % i != 0 && n3 % i != 0)
+    printf("i = %d\n", i);
+
+    if (n1 % i != 0 || n2 % i != 0 || n3 % i != 0)
         nod = 1;
     else
         nod = i;
 
     printf("nod = %d\n", nod);
 
-    int ost_n1;
-    int ost_n2;
-    int ost_n3;
+    int ost_n12;
+    int ost_n22;
+    int ost_n32;
 
-    ost_n1 = n1 % nod;
-    ost_n2 = n2 % nod;
-    ost_n3 = n3 % nod;
+    ost_n12 = n1 % nod;
+    ost_n22 = n2 % nod;
+    ost_n32 = n3 % nod;
 
-    printf("ost n1 = %d\n", ost_n1);
-    printf("ost n2 = %d\n", ost_n2);
-    printf("ost n3 = %d\n", ost_n3);
+    printf("ost n12 = %d\n", ost_n12);
+    printf("ost n22 = %d\n", ost_n22);
+    printf("ost n32 = %d\n", ost_n32);
 }
