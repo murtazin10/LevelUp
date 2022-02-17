@@ -1,37 +1,53 @@
 #include <stdio.h>
+#include <math.h>
 
 int main()
 {
     int N;
-
     printf("Please enter N:\n");
     scanf("%d", &N);
 
     int M;
     M = N;
-    printf("M = %d\n", M);
 
     int i = 0;
     do
     {
-        N = N / 10;
+        M = M / 10;
         ++i;
-        M = M % 10;
+    } while (M != 0);
 
-        printf("M_", i+1);
-        printf("= %d\n", M);
-    } while (N != 0);
+    int num;
+    num = i;
+    printf("num = %d\n", num);
 
-    printf("i = %d\n", i);
+    int temp_0;
+    temp_0 = N % 10;
+    printf("temp_0 = %d\n", temp_0);
 
-    int first_num;
-    int last_num;
+    int array[num];
+    for (int k = 0; k < num; ++k)
+        array[k] = 0;
+    array[0] = temp_0;
 
-    last_num = M % 10;
-    printf("first_num = %d\n", last_num);
+    printf("array_0 = %d\n", array[0]);
 
-    first_num = M / 10 * (4 - 1);                         //
-    printf("last_num = %d\n", first_num);
+    for(int j = 0; j < num - 1; ++j)
+    {
+        N = N / 10;
+        int temp;
+        temp = N % 10;
+        array[j + 1] = temp;
+        printf("array_%d = %d\n", j + 1, array[j + 1]);
+    }
 
-   // printf("reverse_num = %d", reverse_num);            // Вывести число
+    int reverse_num;
+    reverse_num = 0;
+    for (int q = 1; q < num - 1; ++q)
+    {
+        reverse_num += array[q] * int(pow(10, q));
+    }
+
+    reverse_num = reverse_num + array[0] * int(pow(10, num - 1)) + array[num - 1] * int(pow(10, 0));
+    printf("reverse_num = %d\n", reverse_num);
 }
