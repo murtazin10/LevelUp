@@ -25,12 +25,12 @@ int main()
     printf("index: ");
     for (int k = 0; k < size_A; ++k)
     {
-        for (int m = 0; m < size_B; ++m)
+        bool found = false;
+        for (int m = 0; m < size_B && ! found; ++m)
         {
-            if (A[k] - B[m] == 0)
-            {
-                printf("%d", k);
-            }
+            found = A[k] == B[m];
         }
+        if (! found)
+            printf("%d ", k);
     }
 }
